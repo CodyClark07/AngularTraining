@@ -13,4 +13,8 @@ export class ApiService {
   public getMarvelHeroes() {
     return this.httpClient.get(`https://gateway.marvel.com:443/v1/public/characters?apikey=${this.API_KEY}&limit=100`)
   }
+
+  public getMarvelHero(id) {
+    return this.httpClient.get(`https://gateway.marvel.com:443/v1/public/characters/`)
+  }
 }
