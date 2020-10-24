@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from '../api.service';
 import { Hero } from '../hero';
 import { HeroService } from '../hero.service';
 import { MessageService } from '../message.service';
@@ -12,7 +13,8 @@ export class HeroesComponent implements OnInit {
   heroes: Hero[];
 
   constructor(
-    private heroService: HeroService
+    private heroService: HeroService,
+    private apiService: ApiService
   ) { }
 
 
@@ -20,7 +22,14 @@ export class HeroesComponent implements OnInit {
     this.heroService.getHeroes().subscribe(heroes => this.heroes = heroes);
   }
   ngOnInit(): void {
-    this.getHeroes();
+    // this.getHeroes();
+    this.apiService.getMarvelHeroes().subscribe((heroes) => {
+      console.log(heroes.data.results);
+      this.heroes = heroes.data.results;
+      console.log(this.heroes);
+
+
+    })
   }
 
 }
