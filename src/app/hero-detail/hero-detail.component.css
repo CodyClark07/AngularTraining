@@ -1,4 +1,8 @@
 /* HeroDetailComponent's private CSS styles */
+.img-thumbnail {
+height: 20rem;
+width: 20rem;
+}
 label {
     display: inline-block;
     width: 3em;

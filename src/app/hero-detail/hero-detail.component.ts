@@ -24,13 +24,13 @@ export class HeroDetailComponent implements OnInit {
 
   ngOnInit(): void {
     // this.getMarvelHeroes();
-    this.getHero();
-  }
-  getHero(): void {
-    debugger
+
     const id = +this.route.snapshot.paramMap.get('id');
-    this.ApiService.getMarvelHero(id).subscribe(hero => this.hero = hero);
+    this.ApiService.getMarvelHero(id).subscribe(hero => { this.hero = hero.data.results[0] });
+    console.log(this.hero);
+
   }
+
   goBack(): void {
     this.location.back();
   }
