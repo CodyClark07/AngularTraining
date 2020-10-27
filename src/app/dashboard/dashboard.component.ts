@@ -22,7 +22,9 @@ export class DashboardComponent implements OnInit {
   }
 
   getHeroes(): void {
-    this.apiService.getMarvelHeroes().subscribe(heroes => this.heroes = heroes.data.results.slice(1, 5));
+    // this.apiService.getMarvelHeroes().subscribe(heroes => this.heroes = heroes.data.results.slice(1, 5));
+    this.heroService.getHeroes().subscribe(heroes => this.heroes = heroes.slice(1, 5));
+
   }
 
 }

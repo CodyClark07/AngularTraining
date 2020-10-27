@@ -12,7 +12,7 @@ import { ApiService } from '../api.service';
   styleUrls: ['./hero-detail.component.css']
 })
 export class HeroDetailComponent implements OnInit {
-  @Input() hero: Hero;
+  hero: Hero;
 
   constructor(
     private route: ActivatedRoute,
@@ -23,12 +23,17 @@ export class HeroDetailComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    // this.getMarvelHeroes();
+    this.getHero();
 
+    // const id = +this.route.snapshot.paramMap.get('id');
+    // this.ApiService.getMarvelHero(id).subscribe(hero => { this.hero = hero.data.results[0] });
+    // console.log(this.hero);
+
+  }
+
+  getHero(): void {
     const id = +this.route.snapshot.paramMap.get('id');
-    this.ApiService.getMarvelHero(id).subscribe(hero => { this.hero = hero.data.results[0] });
-    console.log(this.hero);
-
+    this.heroService.getHero(id).subscribe(hero => this.hero = hero);
   }
 
   goBack(): void {
