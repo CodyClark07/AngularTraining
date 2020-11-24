@@ -10,12 +10,12 @@ export class ApiService {
     private httpClient: HttpClient
   ) { }
 
-  // public getMarvelHeroes() {
-  //   return this.httpClient.get<any>(`https://gateway.marvel.com:443/v1/public/characters?apikey=${this.API_KEY}&limit=100`)
-  // }
+  public getMarvelHeroes() {
+    return this.httpClient.get<any>(`https://gateway.marvel.com/v1/public/characters?apikey=${this.API_KEY}&limit=100`)
+  }
 
-  // public getMarvelHero(id) {
+  public getMarvelHero(id) {
 
-  //   return this.httpClient.get<any>(`https://gateway.marvel.com:443/v1/public/characters/${id}?apikey=${this.API_KEY}`)
-  // }
+    return this.httpClient.get<any>(`https://gateway.marvel.com:443/v1/public/characters/${id}?apikey=${this.API_KEY}`)
+  }
 }
