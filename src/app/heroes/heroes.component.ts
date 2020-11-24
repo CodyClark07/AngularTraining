@@ -19,7 +19,7 @@ export class HeroesComponent implements OnInit {
 
 
   getHeroes(): void {
-    this.apiService.getMarvelHeroes().subscribe(heroes => this.heroes = heroes);
+    this.heroService.getHeroes().subscribe(heroes => this.heroes = heroes);
   }
 
   add(name: string): void {
@@ -35,14 +35,14 @@ export class HeroesComponent implements OnInit {
     this.heroService.deleteHero(hero).subscribe();
   }
   ngOnInit() {
-    // this.getHeroes();
-    this.apiService.getMarvelHeroes().subscribe((heroes) => {
-      console.log(heroes);
-      this.heroes = heroes.data.results;
-      console.log(this.heroes);
+    this.getHeroes();
+    // this.apiService.getMarvelHeroes().subscribe((heroes) => {
+    //   console.log(heroes);
+    //   this.heroes = heroes.data.results;
+    //   console.log(this.heroes);
 
 
-    })
+    // })
   }
 
 
